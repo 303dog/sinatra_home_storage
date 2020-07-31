@@ -1,0 +1,6 @@
+<h2>All Your Items:</h2>
+
+<%@lists.each do |list|%>     <!--has access to the instance variable @lists within the script tags-->
+    <p><%=list.item%></p>     <!--to evaluate Ruby code but not rendered into HTML. then <p><%=>(substiute tags-->           
+<%end%>                       <!--for writing code that will be evalutated into Ruby and inserted into HTML-->
+
