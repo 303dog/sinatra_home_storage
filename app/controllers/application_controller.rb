@@ -10,5 +10,9 @@ class ApplicationController < Sinatra::Base
   get "/" do
     erb :welcome
   end
-
+  helpers do
+    def current_user
+      @user = User.first
+    end
+  end
 end
