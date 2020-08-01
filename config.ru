@@ -8,5 +8,5 @@ ActiveRecord::Base.logger = Logger.new(STDOUT)
 
 use Rack::MethodOverride
 
-
+use ListsController
 run ApplicationController
