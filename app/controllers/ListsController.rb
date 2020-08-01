@@ -10,12 +10,13 @@ class ListsController < ApplicationController
         erb :'lists/new'
     end
 
-    post '/lists' do  
-        item = current_user.items.build(params)
-        if item.save
-          redirect "items/#{item.id}"
-        else
-            erb :'items.new'
-        end                   #create action used by new.erb
+    post '/lists' do    
+        binding.pry                        #create action used by new.erb
+      #  item = current_user.items.build(params)
+      #  if item.save
+      #    redirect "items/#{item.id}"
+      #  else
+      #      erb :'items.new'
+      #  end                   
     end
 end

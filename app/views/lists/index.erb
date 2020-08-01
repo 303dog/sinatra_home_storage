@@ -1,9 +1,13 @@
 <h2>All Your Items:</h2>
 <ol>
+<img src="/images/modular_shelf.jfif" alt="could not load image">
+
 <%@lists.each do |list|%>    
-    <p><%=list.item%></p>              
+    <p><em><b><%=list.item%></b></em></p>              
 <%end%>
-</ol>                      
+</ol> 
+<br>    
+<br>                 
 
  <!--LINE 3 = has access to the instance variable @lists within the script tags-->
  <!--to evaluate Ruby code but not rendered into HTML.LINE 4 = then <p><%=>(substiute tags-->  
