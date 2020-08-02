@@ -11,8 +11,13 @@
     <link rel="stylesheet" href="/stylesheets/main.css" />
   </head>
   <body>
-  <nav>
-  <a href="/lists/new">Add an item( might want to remove at some point</a>
+    <nav>
+      <a href="/lists/new">Add an item( might want to remove at some point</a>
+      <form action="/logout" method='post'>
+        <input type='hidden' name="_method" value="DELETE">
+        <input type="submit" value="log out">
+        </form>
+    </nav>
     <div class="wrapper">
           
         <%= yield %>  <!--cathces all the code from the controllers and erb and renders-->
