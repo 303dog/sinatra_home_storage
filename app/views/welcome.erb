@@ -4,19 +4,17 @@
     <h2> Welcome page TEST</h2>
 
     <div class="content">
-      <p>Welcome to the Sinatra Template! If you're seeing this page, then everything is working
-      as expected. To get started, delete this file (<code>app/views/welcome.erb)</code> and begin adding
-      your own actions to <code>application_controller.rb</code>. For more information, see the <a href="https://github.com/thebrianemory/corneal">README</a>.</p>
+      <p>Home Storage is an application to help you keep track of the things you keep in your house. After you create an account you can log all your items into your personal "vault" making an updated list of things you hold near and dear. 
+      <br>
+      Next time you have trouble finding that VHS tape of Top Gun you can just check your vault to see if you kept it!  </p>
     </div>
 
     <div class="sidebar">
-      <h3>Environment</h3>
-      <ul>
-        <li><b>Ruby:</b> <%= RUBY_VERSION %></li>
-        <li><b>Environment:</b> <%= ENV["RACK_ENV"] %></li>
-        <li><b>Server:</b> <%= @env["SERVER_SOFTWARE"] %></li>
-        <li><b>Port:</b> <%= @env["SERVER_PORT"] %></li>
-      </ul>
+      <h3>New Users start here.</h3>
+      <a href="/lists/new">Create Account </a>
+        
+      
+    
     </div>
 
   </div>
