@@ -20,13 +20,13 @@ class UsersController < ApplicationController
             session[:user_id] = user.id
             redirect '/lists'
         else
-            @error = ' username and/or password are incorrect'
+            @error = ' **username and/or password are incorrect**'
             erb :'/users/login'
         end
     end
 
     delete '/logout' do
         session.destroy
-        redirect '/lists'
+        redirect '/login'
     end
 end

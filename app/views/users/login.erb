@@ -2,8 +2,12 @@
 <h1>Log In</h1>
 <%if @error%>
 <p><%=@error%></p>
-<form action="/login" methos="post">
+<%end%>
+<form action="/login" method="post">
+<label type="email">Email:</label>
 <input type="text" name="email" id="">
+<br>
+<label type="password">Password:</label>
 <input type="password" name="password" id="">
 <input type="submit" value="log in">
  </form>

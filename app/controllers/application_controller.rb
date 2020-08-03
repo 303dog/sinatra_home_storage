@@ -6,7 +6,7 @@ class ApplicationController < Sinatra::Base
     set :public_folder, 'public'
     set :views, 'app/views'
     enable :sessions
-    set :session_secret, SecureRandom.hex(64)
+    set :session_secret, ENV['SESSION_SECRET']
   end
 
   get "/" do
@@ -17,5 +17,12 @@ class ApplicationController < Sinatra::Base
     def current_user
       @user = User.find_by_id(session[:user_id])
     end
-  end
+
+    def logged_in?
+        !!current_user
+    end
+
+    def login_required
+      redirect '/login' unless logged_in?
+    end
 end

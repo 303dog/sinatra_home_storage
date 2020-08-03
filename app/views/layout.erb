@@ -10,18 +10,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="/stylesheets/main.css" />
   </head>
+  <div class="container">
+    <div class="content"></div>
+</div>
   <body>
     <nav>
-      <a href="/lists/new">Add an item( might want to remove at some point</a>
+     <%if current_user%>
       <form action="/logout" method='post'>
         <input type='hidden' name="_method" value="DELETE">
-        <input type="submit" value="log out">
-        </form>
+        <input type="submit" value="log out" class='nav-btn'>
+      </form>
+      <a href="/lists/new">Add an item( might want to remove at some point</a>
+      <a href="/lists">Vault</a>
+      <%else%>
+      <a href="/login">Log in</a>
+      <a href="/signup">Create an account</a>
+      <%end%>
     </nav>
     <div class="wrapper">
-          
-        <%= yield %>  <!--cathces all the code from the controllers and erb and renders-->
-
+      <%= yield %>  <!--cathces all the code from the controllers and erb and renders-->
+    <div>
       <footer class="branding">
         <small>&copy; 2020 <strong>Homestorage</strong></small>
       </footer>
