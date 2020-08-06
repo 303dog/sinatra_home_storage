@@ -1,20 +1,41 @@
-.complete-button {
-  color: green;
+
+
+
+body {
+  background-image:  url("/images/white_blur.jfif");
+
 }
+  
+  h1{
+    text-align: center;
+  }
+  
+  img {
+    display: block;
+    margin: 0 auto;
+  }
+  nav,
+  figcaption {
+    text-align: center;
+    margin: 0 auto;
 
-nav {
-  display: flex;
-  align-items: baseline;
-  justify-content: space-evenly;
-  border-bottom: 1px solid black;
-}
+  }
 
-.nav-button {
-  display: inline;
-  background: none;
-  border: red;
-  font-size: 1em;
-  color: black;
-}
-
-
+  nav a {
+    padding: 0 10px;
+    background-color: rgb(149, 241, 248);
+    margin: 0 auto;
+  }
+  
+   div {
+    width: 500px;
+    text-align: center;
+    margin: 0 auto;
+  }
+  
+  h3 {
+    float: center;
+    background-color: rgb(149, 241, 248);
+    width: 100%;
+    text-align: 0 auto;
+  }

@@ -14,22 +14,28 @@
     <div class="content"></div>
 </div>
   <body>
+    
     <nav>
      <%if current_user%>
       <form action="/logout" method='post'>
         <input type='hidden' name="_method" value="DELETE">
         <input type="submit" value="log out" class='nav-btn'>
       </form>
-      <a href="/lists/new">Add an item( might want to remove at some point</a>
+   
+      <a href="/lists/new">Add More Items</a>
+      <br>
       <a href="/lists">Vault</a>
       <%else%>
+      
       <a href="/login">Log in</a>
+
       <a href="/signup">Create an account</a>
       <%end%>
     </nav>
     <div class="wrapper">
       <%= yield %>  <!--cathces all the code from the controllers and erb and renders-->
     <div>
+    <br>
       <footer class="branding">
         <small>&copy; 2020 <strong>Homestorage</strong></small>
       </footer>

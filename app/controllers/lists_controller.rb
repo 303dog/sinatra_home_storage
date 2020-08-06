@@ -5,15 +5,14 @@ class ListsController < ApplicationController
         session[:message] = "Welcome back!"
         @lists = current_user.lists                           # index action: when this route(get 
         erb :'lists/index'
-    end                                         # request) is hit, look up all the 
-                                                  # items that correspond to the current user. 
-                                                     # Then directs to the erb where it is told to render that "view".
+    end                               
+    
     get '/lists/new' do  
         login_required                              # new action/ view 
         erb :'lists/new'
     end
 
-    post '/lists' do                                 # create action used by new.erb
+    post '/lists' do                                 # create action used by new.erb/ feeds the 'get' /lists/new 
         list = current_user.lists.build(params)
         if list.save
           redirect "lists/#{list.id}"
@@ -27,27 +26,38 @@ class ListsController < ApplicationController
         if set_list                     #show action 
             erb :'lists/show'
         else
-            redirect '/lists'
+            redirect '/lists/show'
         end
     end 
 
     get '/lists/:id/edit' do
-        det_list
+        login_required
+        set_list                                           #update
         erb :'lists/edit'
     end
 
     patch '/lists/:id' do 
         params.delete(:_method)                         #update action to lists/items/user
         set_list
-        @list.update(params)
-        redirect '/lists'
+        @list.delete(params)
+        redirect '/lists/show'
     end
 
-    delete '/lists/:id' do
-        @lists.destroy if set_list
-        redirect '/lists'
-    end
 
+    
+    delete '/lists/:id' do                      #delete action
+        if login_required
+            set_list
+            if @list.current_user == session[:current_user]
+                @list.delete 
+                session[:message] = "Your vault has been cleared!"
+                redirect '/welcome'
+            end
+        else
+            current_user[:message] = "Let's log in first"
+            redirect '/login'
+        end
+    end
 
 
     private
