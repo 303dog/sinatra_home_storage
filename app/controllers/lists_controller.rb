@@ -37,25 +37,27 @@ class ListsController < ApplicationController
     end
 
     patch '/lists/:id' do 
-        params.delete(:_method)                         #update action to lists/items/user
+        @list = List.find_by_id(params[:id])
+        @list = params[:id]
+        #params.delete(:_method)                         #update 
         set_list
         @list.delete(params)
-        redirect '/lists/show'
+        @list.save
+        redirect "/lists/show/#{@list.id}"
     end
-
 
     
     delete '/lists/:id' do                      #delete action
         if login_required
             set_list
             if @list.current_user == session[:current_user]
+                @list = List.find_by_id(params[:id])
                 @list.delete 
-                session[:message] = "Your vault has been cleared!"
-                redirect '/welcome'
+                session[:message] = "Your vault has been cleared of #{@list.item}"
+                redirect '/lists'
             end
         else
-            current_user[:message] = "Let's log in first"
-            redirect '/login'
+                redirect 'lists'
         end
     end
 

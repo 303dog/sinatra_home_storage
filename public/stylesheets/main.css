@@ -39,3 +39,8 @@ body {
     width: 100%;
     text-align: 0 auto;
   }
+
+  ol {
+    text-align: center;
+    width: 82%;
+  }

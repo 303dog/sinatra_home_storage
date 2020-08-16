@@ -27,6 +27,6 @@ class UsersController < ApplicationController
 
     delete '/logout' do
         session.destroy
-        redirect '/login'
+        erb :welcome
     end
 end

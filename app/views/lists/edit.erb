@@ -1,4 +1,10 @@
-<p><%=@list.item%></p>
+   <% @lists.each do |list| %>
+   <%= list.id %>'><p><%=list.item%></p></a>
+        <p><%=@list.item%></p>
+<% end %>
+
+
+
 <nav>
 
 </nav>

@@ -1,5 +1,13 @@
 
 
 <h2>Adding the<p style="color:green"><%=@list.item%></p>to your vault!</h2>
+<br>
+<br>
 
+
+
+<form method="Post" action="/lists/<%=@list.id%>">
+  <input type="hidden" name="_method" value="DELETE" />
+  <input type="submit" value="Do You Need To Remove Items" />
+</form>
 

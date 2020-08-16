@@ -1,10 +1,13 @@
 <h2>Items in your Vault:</h2>
-<ol>
-<img src="/images/modular_shelf.jfif" alt="could not load image">
 
-<%@lists.each do |list|%>    
-    <p><em><b><%=list.item%></b></em></p>              
-<%end%>
+<img src="/images/200w.webp" alt="could not load image">
+
+<ol>
+    <%@lists.each do |list| %>
+    <a href='/lists/<%= list.id %>'><p><%=list.item%></p></a>
+ 
+
+ <%end%>
 </ol> 
 <br>    
 <br>                 
