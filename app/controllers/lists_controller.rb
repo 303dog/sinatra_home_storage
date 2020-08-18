@@ -22,7 +22,8 @@ class ListsController < ApplicationController
 
     get '/lists/:id' do    
         login_required
-        if set_list                     #show action 
+        if set_list 
+            @lists = List.find_by(params[:id])                    #show action 
             erb :'lists/show'
         else
             redirect '/lists/show'

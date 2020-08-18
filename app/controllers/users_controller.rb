@@ -1,14 +1,18 @@
 class UsersController < ApplicationController
 
     get '/signup' do
+        if !session[:user_id]
         erb :'users/signup'
+        else
+            redirect '/lists'
+        end
     end
 
-    post '/signup' 
-        if logged_in?
-            # "Welcome back, you were already logged in!"
-        elsif
-            params[:user_name] == "" || params[:email] == "" || params[:password] == ""
+    post '/signup' do
+        logged_in?
+        redirect '/lists'
+            # "Welcome back, you were already logged in!"   
+        if  params[:user_name] == "" || params[:email] == "" || params[:password] == ""
             # "looks like you missed something?"
             redirect '/signup'
         else
@@ -25,7 +29,7 @@ class UsersController < ApplicationController
 
     post '/login' do
         user = User.find_by(email: params[:email])
-        if user&.authenticate(params[:password])
+        if user&& user.authenticate(params[:password])
             session[:user_id] = user.id
             redirect '/lists'
         else
