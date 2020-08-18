@@ -14,14 +14,14 @@
     <div class="content"></div>
 </div>
   <body>
-    
+
     <nav>
      <%if current_user%>
       <form action="/logout" method='post'>
         <input type='hidden' name="_method" value="DELETE">
         <input type="submit" value="log out" class='nav-btn'>
       </form>
-   
+    <br>
       <a href="/lists/new">Add New Items</a>
       <br>
       <a href="/lists">Your Vault</a>

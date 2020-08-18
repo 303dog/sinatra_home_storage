@@ -1,10 +1,12 @@
-   <% @lists.each do |list| %>
-   <%= list.id %>'><p><%=list.item%></p></a>
-        <p><%=@list.item%></p>
-<% end %>
+<h1>UPDATE</h1>
+<%if @error%>
+<p><%=@error%></p>
+<%end%>
 
 
-
-<nav>
-
-</nav>
+<form action="/lists/<%=@list.id%>" method= "post">
+    <input type="hidden" name="_method" value="patch" />
+    <label for="item">Edit Item:</label>
+    <input type= "text" name="item" id="item" value="<%=@list.item%>">
+    <input type="submit" value="Update">
+</form>

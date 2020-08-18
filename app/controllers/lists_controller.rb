@@ -2,11 +2,10 @@ class ListsController < ApplicationController
 
     get '/lists' do
         login_required
-        session[:message] = "Welcome back!"
         @lists = current_user.lists                           # index action: when this route(get 
         erb :'lists/index'
-    end                               
-    
+    end                                
+
     get '/lists/new' do  
         login_required                              # new action/ view 
         erb :'lists/new'
@@ -37,27 +36,23 @@ class ListsController < ApplicationController
     end
 
     patch '/lists/:id' do 
-        @list = List.find_by_id(params[:id])
-        @list = params[:id]
-        #params.delete(:_method)                         #update 
+        params.delete(:_method)                         #update 
         set_list
-        @list.delete(params)
-        @list.save
-        redirect "/lists/show/#{@list.id}"
+        @list.update(params)
+        redirect "/lists/#{@list.id}"
     end
 
     
-    delete '/lists/:id' do                      #delete action
-        if login_required
-            set_list
-            if @list.current_user == session[:current_user]
-                @list = List.find_by_id(params[:id])
-                @list.delete 
-                session[:message] = "Your vault has been cleared of #{@list.item}"
-                redirect '/lists'
-            end
+    delete '/lists/:id' do 
+                           #delete action
+        login_required
+        set_list
+        if @list
+           @list.destroy
+            session[:message] = "Your vault has been cleared of #{@list.item}"
+            redirect '/lists'        
         else
-                redirect 'lists'
+            redirect '/login'
         end
     end
 

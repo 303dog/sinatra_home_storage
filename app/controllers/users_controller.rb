@@ -4,10 +4,19 @@ class UsersController < ApplicationController
         erb :'users/signup'
     end
 
-    post '/signup' do
-        user = User.create(params)
-        session[:user_id]= user.id
-        redirect '/lists'
+    post '/signup' 
+        if logged_in?
+            # "Welcome back, you were already logged in!"
+        elsif
+            params[:user_name] == "" || params[:email] == "" || params[:password] == ""
+            # "looks like you missed something?"
+            redirect '/signup'
+        else
+            user = User.create(user_name: params[:user_name], email: params[:email], password: params[:password])
+            user.save
+            session[:user_id]= user.id
+            redirect '/lists'
+        end
     end
 
     get '/login' do 

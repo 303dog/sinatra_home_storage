@@ -1,5 +1,7 @@
 <h1>Create Your Account</h1>
-
+<%if @error%>
+<p><%=@error%></p>
+<%end%>
 <form action='/signup' method='post'>
     <label for="user_name">UserName:</label>
     <input type="text" name='user_name' id=''>
