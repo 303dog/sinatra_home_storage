@@ -1,10 +1,11 @@
 
-
+<h2>What would you like to do now?</h2>
 <h1><p style="color:green"><%=@list.item%></p></h1>
 
 <a href="/lists/<%=@list.id%>/edit">Edit</a>
 <br>
 <br>
+
 <form method="Post" action="/lists/<%=@list.id%>">
   <input type="hidden" name="_method" value="DELETE" />
   <input type="submit" value="Delete" />

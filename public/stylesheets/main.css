@@ -2,10 +2,16 @@
 
 
 body {
-  background-image:  url("/images/white_blur.jfif");
-
-}
+  background: url("/images/grey_fade.jfif") no-repeat;  
+  background-size: cover;
+  border: 10px solid rgb(38, 63, 61);
+  margin: 10px;
+  }
   
+.background {
+  opacity: .04;
+}
+
   h1{
     text-align: center;
   }
