@@ -5,13 +5,7 @@
 <ol>
     <%@lists.each do |list| %>
     <a href='/lists/<%= list.id %>'><p><%=list.item%></p></a>
- 
-
- <%end%>
+  <%end%>
 </ol> 
 <br>    
 <br>                 
-
- <!--LINE 3 = has access to the instance variable @lists within the script tags-->
- <!--to evaluate Ruby code but not rendered into HTML.LINE 4 = then <p><%=>(substiute tags-->  
- <!--for writing code that will be evalutated into Ruby and inserted into HTML-->

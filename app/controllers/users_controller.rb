@@ -7,9 +7,7 @@ class UsersController < ApplicationController
         erb :'users/signup'
     end
 
-    post '/signup' do
-       
-          
+    post '/signup' do         
         if  params[:user_name] == "" || params[:email] == "" || params[:password] == ""
             @error = "looks like you missed something?"
             erb :'users/signup'
