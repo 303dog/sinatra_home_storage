@@ -9,7 +9,7 @@ Next run: bundle
 Copy and paste:  ruby -e "require 'securerandom'; puts SecureRandom.hex(64)"  :into your terminal and hit return, this should create an alphanumeric tag with close to 100 characters.  Once this has been done, go ahead and copy the tag into the .env file you created in the root directory, it should look something like this:
 
 (.env)
-1. SESSION_SECRET= "de5f52cafc7cd5f0766e3dea4f414b1ec422c9514ba7e43cb14fa704c5eeba3c8c99ee84a151d99c5106306a9b9f6c6d7dbd2b30bcab3481280a361bfabc9ce9"
+1. SESSION_SECRET
 
 Now in your terminal you will type (shotgun) and hit return. You should see something that looks like this:
 
